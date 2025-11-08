@@ -1,0 +1,5 @@
+# Dart tool directory
+.dart_tool/
+
+# Build directory
+build/
