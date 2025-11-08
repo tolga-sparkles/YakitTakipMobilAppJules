@@ -14,6 +14,12 @@ void main() {
     await tester.pumpWidget(const FuelTrackerApp());
 
     // Verify that our app has the correct title
-    expect(find.text('Fuel Tracker'), findsOneWidget);
+    expect(
+      find.descendant(
+        of: find.byType(AppBar),
+        matching: find.text('My Statistics'),
+      ),
+      findsOneWidget,
+    );
   });
 }

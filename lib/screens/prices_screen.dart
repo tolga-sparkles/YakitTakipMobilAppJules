@@ -43,9 +43,6 @@ class _PricesScreenState extends State<PricesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Fuel Prices'),
-      ),
       body: ListView.builder(
         itemCount: _fuelPrices.length,
         itemBuilder: (context, index) {

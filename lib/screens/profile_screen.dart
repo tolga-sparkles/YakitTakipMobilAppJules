@@ -60,98 +60,96 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Profile'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: ListView(
-            children: [
-              Text('Vehicle Details', style: Theme.of(context).textTheme.titleLarge),
-              TextFormField(
-                controller: _brandController,
-                decoration: const InputDecoration(labelText: 'Brand'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter the vehicle brand';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _modelController,
-                decoration: const InputDecoration(labelText: 'Model'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter the vehicle model';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _yearController,
-                decoration: const InputDecoration(labelText: 'Year'),
-                keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter the vehicle year';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _licensePlateController,
-                decoration: const InputDecoration(labelText: 'License Plate'),
-              ),
-              const SizedBox(height: 20),
-              Text('App Settings', style: Theme.of(context).textTheme.titleLarge),
-              DropdownButtonFormField<String>(
-                value: _theme,
-                decoration: const InputDecoration(labelText: 'Theme'),
-                items: ['system', 'light', 'dark'].map((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Form(
+        key: _formKey,
+        child: ListView(
+          children: [
+            Text('Vehicle Details',
+                style: Theme.of(context).textTheme.titleLarge),
+            TextFormField(
+              controller: _brandController,
+              decoration: const InputDecoration(labelText: 'Brand'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter the vehicle brand';
+                }
+                return null;
+              },
+            ),
+            TextFormField(
+              controller: _modelController,
+              decoration: const InputDecoration(labelText: 'Model'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter the vehicle model';
+                }
+                return null;
+              },
+            ),
+            TextFormField(
+              controller: _yearController,
+              decoration: const InputDecoration(labelText: 'Year'),
+              keyboardType: TextInputType.number,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter the vehicle year';
+                }
+                return null;
+              },
+            ),
+            TextFormField(
+              controller: _licensePlateController,
+              decoration: const InputDecoration(labelText: 'License Plate'),
+            ),
+            const SizedBox(height: 20),
+            Text('App Settings',
+                style: Theme.of(context).textTheme.titleLarge),
+            DropdownButtonFormField<String>(
+              value: _theme,
+              decoration: const InputDecoration(labelText: 'Theme'),
+              items: ['system', 'light', 'dark'].map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (newValue) {
+                setState(() {
+                  _theme = newValue!;
+                });
+              },
+            ),
+            DropdownButtonFormField<String>(
+              value: _units,
+              decoration: const InputDecoration(labelText: 'Units'),
+              items: ['km/L', 'L/100km', 'mpg'].map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (newValue) {
+                setState(() {
+                  _units = newValue!;
+                });
+              },
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  _saveData();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                        content: Text('Profile saved successfully')),
                   );
-                }).toList(),
-                onChanged: (newValue) {
-                  setState(() {
-                    _theme = newValue!;
-                  });
-                },
-              ),
-              DropdownButtonFormField<String>(
-                value: _units,
-                decoration: const InputDecoration(labelText: 'Units'),
-                items: ['km/L', 'L/100km', 'mpg'].map((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                onChanged: (newValue) {
-                  setState(() {
-                    _units = newValue!;
-                  });
-                },
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    _saveData();
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Profile saved successfully')),
-                    );
-                  }
-                },
-                child: const Text('Save'),
-              ),
-            ],
-          ),
+                }
+              },
+              child: const Text('Save'),
+            ),
+          ],
         ),
       ),
     );

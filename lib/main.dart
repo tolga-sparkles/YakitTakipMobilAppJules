@@ -54,6 +54,14 @@ class _HomePageState extends State<HomePage> {
     ProfileScreen(),
   ];
 
+  static const List<String> _widgetTitles = <String>[
+    'My Statistics',
+    'Fuel Prices',
+    'Add Fuel',
+    'Add Maintenance',
+    'Profile',
+  ];
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -64,7 +72,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Fuel Tracker'),
+        title: Text(_widgetTitles.elementAt(_selectedIndex)),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),

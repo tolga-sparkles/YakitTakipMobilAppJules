@@ -1,5 +1,81 @@
-# Dart tool directory
-.dart_tool/
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
 
-# Build directory
-build/
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+gen/
+
+# Flutter
+.metadata
+.packages
+/build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Dart
+.dart_tool/
+.pub-cache/
+.pub/
+
+# Android
+/android/app/build/
+/android/build/
+/android/.gradle/
+/android/gradle/
+/android/app/release/
+/android/app/profile/
+/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+/android/key.properties
+/android/local.properties
+/android/gradlew
+/android/gradlew.bat
+
+# iOS
+/ios/Pods/
+/ios/Flutter/App.framework
+/ios/Flutter/Flutter.framework
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/flutter_export_environment.sh
+/ios/Flutter/pod_helper.rb
+/ios/Runner/GeneratedPluginRegistrant.h
+/ios/Runner/GeneratedPluginRegistrant.m
+/ios/Runner.xcworkspace/
+/ios/Runner.xcodeproj/
+/ios/.symlinks/
+/ios/build/
+/ios/Pods/
+/ios/ServiceDefinitions.json
+
+# macOS
+/macos/Flutter/ephemeral/
+/macos/Pods/
+/macos/Runner.xcworkspace/
+/macos/build/
+
+# Linux
+/linux/flutter/ephemeral/
+/linux/build/
+/linux/.gradle/
+/linux/app/
+
+# Windows
+/windows/flutter/ephemeral/
+/windows/build/
+/windows/runner/Debug/
+/windows/runner/Release/
+/windows/runner/Profile/
+
+# Web
+/web/build/
